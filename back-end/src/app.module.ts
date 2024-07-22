@@ -6,7 +6,9 @@ import { FirebaseModule } from './firebase/firebase.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [AuthModule,  ConfigModule.forRoot(),],
+  imports: [AuthModule,   ConfigModule.forRoot({
+    isGlobal: true,
+  }),],
   controllers: [AppController],
   providers: [AppService],
 })

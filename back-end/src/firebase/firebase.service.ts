@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import * as admin from 'firebase-admin';
-import * as serviceAccount from './firebase-service-account.json'
+import * as serviceAccount from './firebase-service-account.json';
 
 @Injectable()
 export class FirebaseService {
   private firebaseApp: admin.app.App;
+  private readonly logger = new Logger(FirebaseService.name);
 
   constructor() {
     this.firebaseApp = admin.initializeApp({
